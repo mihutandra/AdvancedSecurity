@@ -1,0 +1,14 @@
+5000/tcp rtsp 
+7000/tcp rtsp 
+8021/tcp tcpwrapped 
+46498/tcp unknown 
+55452/tcp unknown 
+55456/tcp unknown 
+55465/tcp unknown 
+55784/tcp http Node.js Express framework
+55787/tcp http Node.js Express framework
+63252/tcp unknown 
+63442/tcp http Node.js Express framework
+63781/tcp bandwidth-test MikroTik bandwidth-test server
+63796/tcp unknown 
+63849/tcp unknown 

@@ -57,6 +57,20 @@ Key files:
   exercises.
 - [`seminar2/seminar_02.pdf`](seminar2/seminar_02.pdf) — the original exercise sheet.
 
+Captured evidence / command output:
+
+- [`seminar2/ex4.png`](seminar2/ex4.png) — Wireshark DHCP capture (exercise 4).
+- [`seminar2/ex4-handshake.png`](seminar2/ex4-handshake.png) — Wireshark TCP three-way
+  handshake, via Follow → TCP Stream (exercise 4).
+- [`seminar2/live-hosts.lst`](seminar2/live-hosts.lst) — live-host sweep output (exercise 1).
+- [`seminar2/scan.txt`](seminar2/scan.txt) — full `nmap -sV -p-` report (exercise 8).
+- [`seminar2/ex8-open-ports.txt`](seminar2/ex8-open-ports.txt) — extracted open ports and
+  service versions (exercise 8).
+- [`seminar2/ex9-capture.txt`](seminar2/ex9-capture.txt) — `tcpdump` capture of the TCP/UDP
+  scans (exercise 9).
+- [`seminar2/ex5-cookies.txt`](seminar2/ex5-cookies.txt) — `tshark` capture of HTTP cookies in
+  GET requests (exercise 5).
+
 ## Scope and intent
 
 All material here is produced for an academic course and is meant for **authorized, educational

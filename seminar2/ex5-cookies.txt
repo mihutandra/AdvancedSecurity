@@ -1,0 +1,2 @@
+http://httpforever.com/	session=abc123; user=andras
+http://neverssl.com/	session=abc123; user=andras

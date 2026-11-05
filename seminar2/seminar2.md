@@ -59,7 +59,7 @@ These are the solutions for all 10 exercises in Seminar 2.
 
    
 
-   For the handshake, we generate a TCP connection to a reachable lab service, then use `tcp.flags.syn == 1` to locate the opening SYN and follow that packet’s stream. The stream shows SYN, SYN/ACK, and ACK together.
+   For the handshake, we generate a TCP connection to a reachable service, then use `tcp.flags.syn == 1` to locate the opening SYN. Note that this filter only matches the SYN and SYN/ACK packets — the final, pure ACK has no SYN flag, so it is not shown by this filter alone. To see the complete three-way handshake, we right-click the SYN packet and choose **Follow → TCP Stream** (equivalently, filter `tcp.stream eq <n>`): the stream then shows SYN, SYN/ACK, and ACK together.
 
 5. **Show cookies in HTTP GET requests; handle HTTPS**
     
