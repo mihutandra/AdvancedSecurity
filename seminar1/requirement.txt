@@ -1,0 +1,11 @@
+Seminar 1
+
+Download the SecuritateSoftware-v4.zip application and attempt to exploit the buffer overflow vulnerability 
+in the login functionality (the vulnerability is server-side, not client-side).
+- Identify the source of the issue using debugging, code review, etc.
+- Exploit the vulnerability and force the return address to be 0xDEADBEEF.
+- Suggest and test potential fixes.
+Notes: The application was developed in Visual Studio 2015 (an older version). Accept the migration if you are using a newer version of VS.
+For the exploit, first disable the compiler security flags (see the cl_linl_flags.txt file).
+
+Submit via e-mail a writeup of your results (deadline: next seminar).

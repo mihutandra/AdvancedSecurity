@@ -1,0 +1,9 @@
+For Seminar 1 I analyzed the buffer overflow in SecuritateSoftware-v4 and confirmed that the vulnerability is server-side, not client-side.
+
+The bug is in the login handler CmdHandlePass in commands.c. The password received from the network is copied with strcpyinto a fixed 40-byte stack buffer (tempPass), with no check on the input length. Because strcpy keeps copying until it reaches a null byte, a password longer than the buffer writes past it and overwrites the saved frame pointer and the saved return address of the function. The input is fully attacker-controlled and can be any length, so this is enough to redirect the server’s execution.
+
+To reach the vulnerable code I first send a valid user command (for example user admin), which puts the connection in the state where the password handler runs. A correct password is not needed, because the overflow happens during the password check, before authentication finishes.
+
+Before exploiting, I disabled the compiler security flags listed in cl_link_flags.txt, mainly /GS (the stack cookie). To find the exact position of the return address, I sent a non-repeating pattern as the password, let the server crash, and read the  address from the server’s own exception handler (it prints EIP). From that I recovered the offset: 44 bytes (40 for the buffer plus 4 for the saved EBP). I then sent 44 bytes of padding followed by the 4 bytes EF BE AD DE, which is 0xDEADBEEF in little-endian. This payload has no null or space bytes, so the parser accepts it. The result was the return address set to 0xDEADBEEF, confirmed by the server reporting EIP=0xdeadbeef.
+
+For the fix, I replaced strcpy with a bounded copy and rejected passwords that are too long, then re-enabled the compiler and OS protections as defense in depth. After the fix, the same long payload no longer crashes the server, over-long passwords are simply rejected, and a normal valid login still works.
